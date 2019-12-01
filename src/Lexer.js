@@ -1,6 +1,7 @@
 const Reader = require('./Reader')
 const { StringToken, IdToken, NumberToken, CommentToken, Token } = require('./Token')
 const { parseError } = require('./utils/error')
+const { formatLogger, logger } = require('./utils/logger')
 
 /**
  * 匹配正则
@@ -92,7 +93,7 @@ class Lexer {
     // 行号
     const lineNumber = this.reader.getLineNumber()
 
-    console.log(`读取到第 ${lineNumber} 行 : ${line}`)
+    formatLogger(`读取到第 ${lineNumber} 行`, `源代码：${line}`)
 
     // 是否为有效 token
     let start = 0

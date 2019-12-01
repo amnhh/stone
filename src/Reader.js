@@ -1,7 +1,7 @@
 const fs = require('fs')
 // const path = require('path')
 const promiseify = require('./utils/promiseify')
-// const { errorTrace } = require('./utils/error')
+const { formatLogger } = require('./utils/logger')
 
 // const readFilePms = promiseify(fs.readFile)
 const readFile = fs.readFileSync
@@ -11,6 +11,7 @@ class Reader {
     this.source = this.sourceCodeAdaptor(filePath)
     this.currentLine = 0
     this.iterator = this.source[Symbol.iterator]()
+    formatLogger('源代码', this.source.join('\n'))
   }
 
   /**
