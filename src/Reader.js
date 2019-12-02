@@ -37,7 +37,7 @@ class Reader {
 
   /**
    * 接收源代码地址，返回源代码数组字符串
-   * 相对路径依赖于 Lexer.js 所在路径
+   * 接收绝对路径进来
    * @param {String} filePath => 源代码地址
    * @return { Array } sourceArray => 源代码字符串数组
    *  sourceArray[lineNumber = 0]...
