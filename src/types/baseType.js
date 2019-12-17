@@ -63,5 +63,48 @@ class ASTLeaf extends ASTree {
  * 语法树枝干节点
  */
 class ASTList {
+  constructor (list) {
+    this.children = list
+  }
 
+  /**
+   * 获取某个子节点
+   */
+  getChild (i) {
+    return this.children[i]
+  }
+
+  /**
+   * 获取子节点个数
+   */
+  getChildCount () {
+    return this.children.length
+  }
+
+  /**
+   * 获取子节点迭代器
+   */
+  getChildIterator () {
+    return this.children[Symbol.iterator]()
+  }
+
+  /**
+   * 打印子节点
+   */
+  toString () {
+    return this.children.join(',')
+  }
+
+  /**
+   * 获取位置
+   */
+  location () {
+    return this.children.map(token => token.location)
+  }
+}
+
+module.exports = {
+  ASTList,
+  ASTLeaf,
+  ASTree
 }
